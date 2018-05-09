@@ -24,6 +24,7 @@
   -  Please notice that the db will also stay available until 9-6 as it is on the personal aws account of Ioannis
   -  A Schema.sql file is provided in the db folder to instantianate your own schema in your instance of MySQL, please provide connection details in file config.js of db folder
 
+  - To load the schema, from terminal:
   ```sh
   mysql.server start
   ```
