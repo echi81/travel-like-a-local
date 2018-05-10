@@ -10,15 +10,18 @@ class FriendList extends React.Component {
   render() {
     //console.log(this.props.friendList);
     return (
-
-      <div className="friend-list">
-        <p><span data-testid="friendList-username" className="name">{this.props.userName}</span>these are your friends:</p>
-        {this.props.friendList.map((friend) => <FriendListEntry friendID={friend.friendID} userID={this.props.userID} friend={friend.friendName} key={friend.friendID} handleFriendDelete={this.props.handleFriendDelete} />)}
-      </div>
+      <StyledFriendList>
+       <div><span className="name" style={{fontStyle: 'italic'}}>these are your friends:</span></div>
+        {this.props.friendList.map((friend) => <FriendListEntry friend={friend.username} key={friend.id} handleFriendDelete={this.props.handleFriendDelete} />)}
+      </StyledFriendList>
     );
   }
 }
 
+const StyledFriendList = styled.div`
+  grid-column: 1 / 2;
+  text-align: center;
+`
 
 
 export default FriendList;

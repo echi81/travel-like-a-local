@@ -1,6 +1,6 @@
 import React from 'react';
 import FriendList from "../jsx/FriendList.jsx";
-import AddFriend from '../jsx/AddFriend.jsx';
+import FriendSuggestionList from '../jsx/FriendSuggestionList.jsx';
 import styled from 'styled-components'
 class Friends extends React.Component {
   constructor(props) {
@@ -9,9 +9,9 @@ class Friends extends React.Component {
   render() {
     return(
       <FriendsContainer className="friends">
-        <FriendList userName={this.props.userName} userID={this.props.userID} 
+        <FriendList userName={this.props.userName} userID={this.props.userID}
           friendList={this.props.friendList} handleFriendDelete={this.props.handleFriendDelete} />
-        <AddFriend userName={this.props.userName} friendsToAdd={this.props.friendsToAdd} 
+        <FriendSuggestionList userName={this.props.userName} friendsToAdd={this.props.friendsToAdd}
           handleAddFriend={this.props.handleAddFriend} />
       </FriendsContainer>
     )
@@ -19,7 +19,11 @@ class Friends extends React.Component {
 }
 
 const FriendsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 10px
 `
 
 

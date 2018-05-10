@@ -50,23 +50,23 @@ class App extends React.Component {
         friendList: response.data
       });
     }.bind(this));
-    
+
     ajaxHandler.getRemainingFriends(this.state.userName, function (response) {
       this.setState({
         friendsToAdd: response.data
       });
     }.bind(this));
-    
+
     if (this.state.userName === 'not logged in') {
       this.setState({ suggestionList: [] });
     }
-    
+
     ajaxHandler.getDestinations(function (response) {
       this.setState({
         destinations: response
       });
     }.bind(this));
-    
+
     ajaxHandler.handleGetLoggedUserID(this.state.userName, function (response) {
       //console.log(response.data);
       if (response.data.length > 0) {
@@ -140,9 +140,9 @@ class App extends React.Component {
       var suggestionList = [];
       var that = this;
       ajaxHandler.getPlacesFromGoogleMaps(location, function (suggestions) {
-        
+
         //console.log('suggestion results......', suggestions); // RAW RESULTS FROM GOOGLE
-        
+
         for (var i = 0; i < suggestions.length; i++) {
           if (suggestions[i].photos !== undefined) {
             var link = suggestions[i].photos[0].html_attributions[0].match(/href="(.*?")/g);
@@ -212,7 +212,7 @@ class App extends React.Component {
   render() {
 
     return (
-      
+
       <MuiThemeProvider>
         <div>
         <Nav userName={this.state.userName} trips={this.state.trips} getTrip={this.getTrip} />
